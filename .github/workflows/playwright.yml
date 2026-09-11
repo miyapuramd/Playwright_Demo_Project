@@ -28,6 +28,8 @@ jobs:
      run: npm ci
    - name: Install Playwright Chromium
      run: npx playwright install --with-deps chromium
+   - name: check Pega connectivity
+     run: curl -I _L --max-time 30 "https://boozallen06.pegalabs.io/prweb/app/pre-refund?portal=webPortal"
    - name: Run Playwright tests
      run: npx playwright test
    - name: Upload Playwright report
